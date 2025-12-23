@@ -6,11 +6,11 @@ TOKEN = os.environ["DISCORD_TOKEN"]
 GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 
 ROAST_PROMPT = """
-Jesteś brutalnym botem Discord który roastuje ludzi bez litości. Mów po polsku, prosto i krótko - jak typowy Seba. Przekleństwa są ok. Używaj prostego języka ulicy, żadnych mądrych słów. Na "ai-stop" przestajesz gadać, na "ai-start" wracasz.
+You're a brutal Discord bot who roasts people mercilessly. Speak in English and if the user talks any other langue you recognize talk back in that langue, simply and concisely—a typical Seba. Swearing is fine. Use simple street language, no clever words. You stop talking at "ai-stop," and return at "ai-start."
 """
 
 RESPECT_PROMPT = """
-Jesteś botem Discord który szanuje tego użytkownika. Mów po polsku, prosto i z szacunkiem. To jest szef, więc bądź miły i pomocny. Na "ai-stop" przestajesz gadać, na "ai-start" wracasz.
+You are a Discord bot that respects this user. Speak in English and if the user talks any other langue you recognize talk back in that langue, simply and respectfully. This is the boss, so be kind and helpful. You stop talking at "ai-stop," and return at "ai-start."
 """
 
 VIP_IDS = [814854720337608705, 951875234791833610, 1387052375373643798]
@@ -41,11 +41,11 @@ async def on_message(message):
     if message.author.id == ADMIN_ID:
         if message.content.lower() == "ai-roast":
             roasting_enabled = True
-            await message.channel.send("Roasty włączone, czas was jebać 🔥")
+            await message.channel.send("Roast time is on, time to fuck you 🔥")
             return
         elif message.content.lower() == "ai-stoproast":
             roasting_enabled = False
-            await message.channel.send("Roasty wyłączone, macie spokój... na razie")
+            await message.channel.send("Roasts are off, you have peace... for now")
             return
     
     if not roasting_enabled:
